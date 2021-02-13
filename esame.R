@@ -8,7 +8,7 @@ names(heart)[names(heart) == "thalach"] <- "maxhrh"
 # rimuovo colonne inutili
 heart <- subset(heart, select = -x)
 as_tibble(heart)
-options(max.print=999999)
+options(max.print = 999999)
 heart %>% distinct()
 # ricontrollo
 str(heart)
@@ -142,7 +142,7 @@ reg1 <- lm(heart$age ~ heart$maxhrh)
 pred <- data.frame("maxhrh" = c(90, 137, 200, 210, 150, 97, 267, 145, 100, 165))
 predict(reg, pred, interval = "confidence")
 # implemento algoritmi di machine learning
-dataset <- heart[c(-1:-3,-6,-7,-9:-13)]
+dataset <- heart[c(-1:-3, -6, -7, -9:-13)]
 dim(dataset)
 sapply(dataset, class)
 head(dataset)
@@ -172,7 +172,7 @@ nrow(training_set)
 test_set <- dataset[-training_index, ]
 nrow(test_set)
 summary(test_set)
-seed = set.seed(1500)
+seed <- set.seed(1500)
 control <- trainControl(method = "cv", number = 10, seed = seed)
 metric <- "Accuracy"
 
